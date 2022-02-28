@@ -8,7 +8,8 @@ which shows log4j 1.2.12 dependency.
 * Install [Maven 3.8.4](https://maven.apache.org/download.cgi)
 
 ### Problem statement
-
+``org.apache.maven.plugins:maven-dependency-plugin:3.2.0`` downloads ``log4j:log4j:1.2.12`` during maven build.
+This obsolete version of log4j is not part of runtime, but is found by security scan tools in the local maven cache. 
 
 ### Reproduce the problem
 ```
@@ -19,3 +20,6 @@ mvn clean install
 ls -la ~/.m2/repository/log4j/log4j/
 # log4j 1.2.12 is downloaded by maven dependency plugin
 ```
+
+### Expected behaviour
+``mvn clean install`` does not cause download of ``log4j:log4j:1.2.12`` into local ``~/.m2/repository`` maven cache.
