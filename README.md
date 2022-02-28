@@ -7,7 +7,10 @@ which shows log4j 1.2.12 dependency.
 * Install [Java 17](https://adoptium.net/releases.html?variant=openjdk17&jvmVariant=hotspot)
 * Install [Maven 3.8.4](https://maven.apache.org/download.cgi)
 
-### Reproduce problem
+### Problem statement
+
+
+### Reproduce the problem
 ```
 rm -rf ~/.m2/repository/*
 git clone https://github.com/jveverka/mvn-dependency-log4j.git
