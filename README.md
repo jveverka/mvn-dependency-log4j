@@ -12,6 +12,7 @@ which shows log4j 1.2.12 dependency.
 This obsolete version of log4j is not part of runtime, but is found by security scan tools in the local maven cache. 
 
 ### Reproduce the problem
+* compile the project with clean maven cache.
 ```
 rm -rf ~/.m2/repository/*
 git clone https://github.com/jveverka/mvn-dependency-log4j.git
@@ -19,6 +20,13 @@ cd mvn-dependency-log4j
 mvn clean install
 ls -la ~/.m2/repository/log4j/log4j/
 # log4j 1.2.12 is downloaded by maven dependency plugin
+```
+* remove maven maven-dependency-plugin from [pom.xml](pom.xml) and compile the project with clean maven cache. 
+```
+rm -rf ~/.m2/repository/*
+mvn clean install
+ls -la ~/.m2/repository/log4j/log4j/
+# log4j 1.2.12 is NOT downloaded by maven dependency plugin
 ```
 
 ### Expected behaviour
